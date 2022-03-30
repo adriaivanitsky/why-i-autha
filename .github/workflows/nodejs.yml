@@ -12,9 +12,14 @@ jobs:
           POSTGRES_USER: alchemy
           POSTGRES_PASSWORD: alchemy
     steps:
-    - uses: actions/checkout@v2
-    - run: npm ci
-    - run: npm test
-      env:
-        CI: true
-        DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm test
+        env:
+          CI: true
+          DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
+          COOKIE_NAME: session
+          JWT_SECRET: secret
+          CLIENT_ID: 655008dbb0f2717f5cfd
+          CLIENT_SECRET: dd52d595d4f98a2129b27e2b1f7b25dc7169868b
+          REDIRECT_URI: http://localhost:7890/api/v1/github/login/callback
